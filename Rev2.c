@@ -11,7 +11,6 @@ void display(void)
         glVertex2i(10,i);
         glVertex2i(50,i);
     }
-
     glEnd();
     glFlush();
 }
