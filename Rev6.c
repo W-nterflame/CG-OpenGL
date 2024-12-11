@@ -4,22 +4,25 @@
 
 static double s = 0.5;
 const float DEG2RAD = 3.14159/180;
+
 void display(void)
 {
-     glClearColor(0.0f, 0.0f, 0.0f, 1.0f); // Black and opaque
-	 glClear(GL_COLOR_BUFFER_BIT);
-	 glPolygonMode( GL_FRONT, GL_FILL );//glPolygonMode controls the interpretation of polygons for rasterization
-     glColor3f(1.0, 0.0, 0.0 );
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f); // Black and opaque
+    glClear(GL_COLOR_BUFFER_BIT);
+    glPolygonMode( GL_FRONT, GL_FILL );//glPolygonMode controls the interpretation of polygons for rasterization
+    glColor3f(1.0, 0.0, 0.0 );
 
 	glBegin(GL_POLYGON);
+	
 	for(int i=0; i < 360; i++)
 	{
 		 //convert degrees into radians
 		float degInRad = i*DEG2RAD;
-				glVertex2f(cos(degInRad)*s,sin(degInRad)*s);
+        glVertex2f(cos(degInRad)*s,sin(degInRad)*s);
 	}
-	glEnd();
-glFlush();
+	
+    glEnd();
+    glFlush();
 }
 
 void timer_function( int value)
@@ -33,7 +36,7 @@ void timer_function( int value)
     if (count == 0)
         flag=true;
 
-    if (flag ) {
+    if (flag) {
         s += 0.1;
         count++;
     }
